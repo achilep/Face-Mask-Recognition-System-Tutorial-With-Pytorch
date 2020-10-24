@@ -7,7 +7,7 @@ Sample face mask recognition  Output
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/test result1.png" alt="output"/>
 
 
-### features coverd by the tutorial 
+#### 1. features coverd by the tutorial 
 
 1. [transform](https://pytorch.org/docs/stable/torchvision/transforms.html?highlight=transform)
 Transforms are common image transformations.
@@ -22,15 +22,15 @@ The model's subpackage contains definitions of models for addressing different t
 
 3. [nn](https://pytorch.org/docs/stable/nn.html)
 
-4. [optim](https://pytorch.org/docs/stable/optim.html#:~:text=optim-,torch.,easily%20integrated%20in%20the%20future.):torch.optim is a package implementing various optimization algorithms.
+4. [optim](https://pytorch.org/docs/stable/optim.html#:~:text=optim-,torch.,easily%20integrated%20in%20the%20future.) torch.optim is a package implementing various optimization algorithms.
 
       
-### requirement 
+#### 2. Prerequisites 
 - Computer with GPU
 - Good knowledge of python.
 - Basic knowledge of deep learning (neural network, convolutional neural network(CNN), etc. ) 
 
-### Setting up the working environment :
+#### 3.Setting up the working environment 
 - Local computer: you can follow the instruction [here](https://pytorch.org/get-started/locally/) to set up PyTorch in the computer. 
 
 - platform as a service: Kaggle Kernels is a free platform to run Jupyter notebooks in the browser. kaggle provide free GPU to train your model.
@@ -38,11 +38,11 @@ you can Sign in [here](https://www.kaggle.com/)
 
 ## Building the App step by step  
 
-### Step 0: Import Datasets
+### Step 0 Import Datasets
 Make sure that you've downloaded the required dataset.
 
 Download the [dataset](https://www.kaggle.com/achilep/covid19-face-mask-data/download) to train our model, For testing we are using a different  [dataset](https://www.kaggle.com/achilep/covid19-face-mask-recognition-test-data).
-### Step 1: Specify Data Loaders for the covid19-face-mask-data dataset
+### Step 1 Specify Data Loaders for the covid19-face-mask-data dataset
 
 - Loading Image Data
 
@@ -244,12 +244,12 @@ print(model_transfer)
 ```
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/print-modeltrasnfert.png" alt="Load the Model"/>
 
-### Step 3: Specify Loss Function and Optimizer
+### Step 3 Specify Loss Function and Optimizer
 Error and Loss Function: In most learning networks, the error is calculated as the difference between the actual output and the predicted output.
 The function that is used to compute this error is known as Loss Function.
 
 - Loss function
-loss functions are mathematical algorithms that help measure how close a neural net learns to get the actual result. In machine learning, a loss function is a mathematical algorithm that evaluates the performance of an ML algorithm with respect to its desired result. There are various loss functions for various problems. You are aware that machine learning problem can (in basic terms) be either a classification problem or a regression problem. This implies that we do have optimized loss functions for classification and others for regression. To mention a few, we do have the following loss functions as classification based (binary cross-entropy, categorical cross-entropy, cosine similarity and others). We also have, mean squared error (MSE), mean absolute percentage error (MAPE), mean absolute error (MAE), just to mention a few, used for regression-based problems.
+Loss functions are mathematical algorithms that help measure how close a neural net learns to get the actual result. In machine learning, a loss function is a mathematical algorithm that evaluates the performance of an ML algorithm with respect to its desired result. There are various loss functions for various problems. You are aware that machine learning problem can (in basic terms) be either a classification problem or a regression problem. This implies that we do have optimized loss functions for classification and others for regression. To mention a few, we do have the following loss functions as classification based (binary cross-entropy, categorical cross-entropy, cosine similarity and others). We also have, mean squared error (MSE), mean absolute percentage error (MAPE), mean absolute error (MAE), just to mention a few, used for regression-based problems.
 
 
 - An optimizer
@@ -264,7 +264,7 @@ criterion_transfer = nn.CrossEntropyLoss()
 
 optimizer_transfer = optim.SGD(model_transfer.classifier.parameters(), lr=0.001)
 ```
-### Step 4: Train and Validate the Model
+### Step 4 Train and Validate the Model
 Train and validate your model in the code cell below. [Save the final model parameters](http://pytorch.org/docs/master/notes/serialization.html) at filepath ```'model_transfer.pt'```.
 ```
 import numpy as np
@@ -346,7 +346,7 @@ print(model_transfer)
 ```
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/after_train.png" alt="Load the Model"/>
 
-### Step 5: Test the Model
+### Step 5 Test the Model
 Try out your model on the test dataset . Use the code cell below to calculate and print the test loss and accuracy. Ensure that your test accuracy is greater than 60%.
 
 ```
@@ -387,7 +387,7 @@ test(loaders_transfer, model_transfer, criterion_transfer, use_cuda)
 ```
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/test_accuraty.png" alt="Test Accuracy"/>
 
-### Step 6: Predict if a human is wearing a face mask or not  with the Model
+### Step 6 Predict if a human is wearing a face mask or not  with the Model
 Write a function that takes an image path as input and returns the mask if the man present on the image is wearing a face mask or not base on the prediction of the model.
 ```
 ###  Write a function that takes a path to an image as input
@@ -418,7 +418,7 @@ def predict_transfer(img_path):
     
     return class_names[prediction]  # predicted class label
   ```
- ### Step 7: Write your Algorithm 
+ ### Step 7 Write your Algorithm 
  Write the run_app that an image of a human an print ```This person is responsible, he wears his face mask!!!!``` when a that person is wearing a face 
  and print ``` This person is irresponsible, he does not wear his face mask!!!!!``` when a that does not have a face mask.
  
@@ -438,7 +438,7 @@ def run_app(img_path):
     plt.imshow(img)
     plt.show()
 ```
-### Step 8: test our function run_app 
+### Step 8 test our function run_app 
 We can now use how test dataset to test our system.
 
 ```$xslt
@@ -453,7 +453,7 @@ for file in np.array(glob("../input/covid19-face-mask-recognition-test-data/Covi
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/test result1.png" alt="result of the predition"/>
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/test result1.png" alt="result of the predition"/>
 
-### Step 9: optional integrate opencv to the project
+### Step 9 optional integrate opencv to the project
 Write the run_app_with_opencv method that an image of a human an print ```This person is responsible, he wears his face mask!!!!``` when a that person is wearing a face 
  and print ``` This person is irresponsible, he does not wear his face mask!!!!!``` when a that does not have a face mask. and in addition located the highlight the face of a person .
  ```
@@ -489,8 +489,8 @@ def run_app_with_opencv(img_path):
     plt.imshow(cv_rgb)
     plt.show()
  ```
- ### Step 10: Test Your Algorithm
- you can use one image to test ```run_app_with_opencv```
+ ### Step 10 Test Your Algorithm
+ You can use one image to test ```run_app_with_opencv```
  ```
 ## Execute your algorithm from Step 6 
 ## on 1 images on your computer.
@@ -501,15 +501,25 @@ for file in np.array(glob("../input/covid19-face-mask-recognition-test-data/Covi
 <img src="https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/Resource/readme_image/test result with opencv.png" alt="result of the predition"/>
 
 ## summary 
-we have learn how to use pre- train model to speed up the training of our model. 
+We learned to use a pre-train model to speed up our model training and increase our accuracy above 80%. 
 
-## future work 
-the project can be used in the public service to control people that are entered, the make sure that they have they face mask.
-1. we can integrate our model with a webcam or video camera using OpenCV.
-2. we can integrate a notification system.
-2. we can integrate our model in automation door open, in such a way that the door will open only when a person is wearing a face mask.
-3. we can use it in school to make sure that the student always wears the face mask. 
+
+## What next  
+The next step will be 
+- To integrate the model with surveillance cameras to be able to identify in real-time whether a man is wearing his face mask or not. 
  
+- Integration of alarm and notification systems to be able to warn security guards when the system identifies a man who is not wearing his silencer.
  ## Resources 
+ Pytorch official [tutorial](https://pytorch.org/tutorials/) 
+ 
+ Pytorch official [blog](https://pytorch.org/blog/)
+ 
+ Pytorch official [documentation](https://pytorch.org/docs/stable/index.html)
+ 
+ pytorch official [github repository](https://github.com/pytorch) 
+   
  The notebook code can be found [here](https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/face-mask-detection.ipynb)
+ 
  The French version of the tutorial can be found [here](https://github.com/achilep/Tutoriel-Sur-Un-System-De-Reconnaissance-Du-Cache-Nez-Avec-pytorch) 
+
+##### Thanks for reading! Happy coding!
