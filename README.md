@@ -510,3 +510,6 @@ the project can be used in the public service to control people that are entered
 2. we can integrate our model in automation door open, in such a way that the door will open only when a person is wearing a face mask.
 3. we can use it in school to make sure that the student always wears the face mask. 
  
+ ## Resources 
+ The notebook code can be found [here](https://github.com/achilep/Face-Mask-Recognition-System-Tutorial-With-Pytorch/blob/main/face-mask-detection.ipynb)
+ The French version of the tutorial can be found [here](https://github.com/achilep/Tutoriel-Sur-Un-System-De-Reconnaissance-Du-Cache-Nez-Avec-pytorch) 
